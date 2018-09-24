@@ -1,17 +1,27 @@
 {
   "name": "babel-plugin-transform-functional-jsx",
-  "version": "6.0.1",
+  "version": "7.0.0",
   "description": "Turn JSX into pure function calls",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "keywords": [
     "babel-plugin"
   ],
+  "scripts": {
+    "build": "babel --presets @babel/preset-env src -d lib",
+    "prepublish": "yarn run build"
+  },
   "dependencies": {
-    "babel-helper-builder-react-jsx": "^6",
-    "babel-plugin-syntax-jsx": "^6"
+    "@babel/helper-builder-react-jsx": "^7",
+    "@babel/helper-plugin-utils": "^7",
+    "@babel/plugin-syntax-jsx": "^7"
   },
   "peerDependencies": {
-    "babel-core": "^6"
+    "@babel/core": "^7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7",
+    "@babel/cli": "^7",
+    "@babel/preset-env": "^7"
   }
 }

@@ -1,8 +1,10 @@
-const jsx = require('babel-plugin-syntax-jsx')
-const helper = require('babel-helper-builder-react-jsx')
-// const react = require('babel-plugin-transform-react-jsx')
+// https://github.com/babel/babel/blob/master/packages/babel-plugin-transform-react-jsx/src/index.js
+import { declare } from '@babel/helper-plugin-utils'
+import jsx from '@babel/plugin-syntax-jsx'
+import helper from '@babel/helper-builder-react-jsx'
+import { types as t } from '@babel/core'
 
-module.exports = ({ types: t }) => {
+module.exports = declare((api, options) => {
   const JSXSpreadChild = (path) => {
     path.replaceWith(
       t.spreadElement(path.node.expression)
@@ -23,4 +25,4 @@ module.exports = ({ types: t }) => {
     inherits: jsx,
     visitor,
   }
-}
+})
