@@ -4,7 +4,7 @@ import jsx from '@babel/plugin-syntax-jsx'
 import helper from '@babel/helper-builder-react-jsx'
 import { types as t } from '@babel/core'
 
-module.exports = declare((api, options) => {
+export default declare((api, options) => {
   const JSXSpreadChild = (path) => {
     path.replaceWith(
       t.spreadElement(path.node.expression)
