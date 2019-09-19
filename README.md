@@ -1,29 +1,20 @@
-# babel-plugin-transform-functional-jsx
-Pure functional & [spread children](https://github.com/facebook/jsx/pull/59) support
-
+# babel-plugin-transform-jsx-params2
 
 ## Example
 
 In
 ```js
-<div>
-  <a href="other.html">Link</a>
-  <ul>
-    {...[<li>Item A</li>, <li>Item B</li>]}
-    <li>Item Last</li>
-  </ul>
-</div>
+<div></div>
+function Foo() {
+  return <div></div>
+}
 ```
 
 Out
 ```js
-div(
-  null,
-  a({ href: "other.html" }, "Link"),
-  ul(
-    null,
-    ...[li(null, "Item A"), li(null, "Item B")],
-    li(null, "Item Last")
-  )
-);
+<div></div>;
+
+function Foo(_, _2, _jsx) {
+  return _jsx("div", null);
+}
 ```

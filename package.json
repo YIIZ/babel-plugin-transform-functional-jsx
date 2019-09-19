@@ -1,14 +1,15 @@
 {
-  "name": "babel-plugin-transform-functional-jsx",
+  "name": "babel-plugin-transform-jsx-params2",
   "version": "7.0.0",
-  "description": "Turn JSX into pure function calls",
+  "description": "params[2] as jsxIdentifier",
   "license": "MIT",
   "main": "lib/index.js",
   "keywords": [
     "babel-plugin"
   ],
   "scripts": {
-    "build": "babel --presets @babel/preset-env src -d lib",
+    "build": "babel src -d lib",
+    "test": "babel-node test/index.js",
     "prepublish": "yarn run build"
   },
   "dependencies": {
@@ -20,8 +21,9 @@
     "@babel/core": "^7"
   },
   "devDependencies": {
-    "@babel/core": "^7",
     "@babel/cli": "^7",
+    "@babel/core": "^7",
+    "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7"
   }
 }
